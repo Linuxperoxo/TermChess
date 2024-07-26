@@ -3,14 +3,17 @@
 
 #include <vector>
 
+#include "piece.h"
+
 class Board{
 private:
-  std::vector<std::vector<char>> board;
+  std::vector<std::vector<Piece*>> board;
 public:
   Board();
-  ~Board() = default;
+  ~Board();
+
   void printBoard();
-  void put_in_board(char type, int subRow, int subCol, int newRow, int newCol);
+  void placeObject(Piece* object);
 };
 
-#endif 
+#endif

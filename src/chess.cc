@@ -1,14 +1,17 @@
-#include "pawn.h"
 #include "board.h"
+#include "pawn.h"
 
 int main(){
-  Board* board = new Board;
-  Pawn* pawn = new Pawn(0, 0);
+  Board* board =  new Board;
 
-//  board->printBoard();
-  pawn->move(4, 2);
-  board->put_in_board(pawn->getType(), pawn->getold_row(), pawn->getold_col(), pawn->getRow(), pawn->getCol());
+  Pawn* pawn1 = new Pawn(0, 1, 0);
+  Pawn* pawn2 = new Pawn(1, 1, 0);
+
+  //  board->printBoard();
+
+  board->placeObject(pawn1);
+  board->placeObject(pawn2);
   board->printBoard();
 
-  return 0;
+  delete board;
 }
