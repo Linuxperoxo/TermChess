@@ -1,23 +1,20 @@
 #include "pawn.h"
+#include "piece.h"
 
+Pawn::Pawn(int c, int init_row, int init_col) : Piece(c, init_row, init_col){
+  type = ( c == 0 ? 'P' : 'p' );
+  old_col = init_col;
+  old_row = init_row;
+};
 
-Pawn::Pawn(int init_row, int init_col) : Piece(init_row, init_col){
-  type = 'P';
-}
-
-int Pawn::move(int newRow, int newCol) {
-
+int Pawn::move(int newRow, int newCol){
   old_row = row;
   old_col = col;
 
-  row = --newRow;
-  col = --newCol;
+  row = newRow;
+  col = newCol;
 
   return 0;
-}
-
-char Pawn::getType() const{
-  return type;
 }
 
 int Pawn::getRow() const{
@@ -28,10 +25,6 @@ int Pawn::getCol() const{
   return col;
 }
 
-int Pawn::getold_row() const{
-  return old_row;
-}
-
-int Pawn::getold_col() const{
-  return old_col;
+char Pawn::getType() const{
+  return type;
 }
