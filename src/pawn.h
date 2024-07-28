@@ -21,9 +21,6 @@ public:
   // Construtor
   Pawn(int c, int row, int col);
 
-  // Destrutor
-  ~Pawn() = default;
-
   // Função que verifica se o movimento é válido
   bool checkIsValidMovement(int row, std::vector<std::vector<Piece*>> board);
 };
