@@ -11,7 +11,7 @@ int main(){
   board->putPiece(pawn2);
   board->printBoard();
   
-  pawn1->checkIsValidMovement(2, 1, board->getBoard());
+  pawn1->checkIsValidMovement(3, 1, board->getBoard());
   pawn2->checkIsValidMovement(7, 1, board->getBoard());
   
   board->putPiece(pawn1);

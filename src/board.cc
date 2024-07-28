@@ -43,9 +43,12 @@ void Board::putPiece(Piece* object){
 }
 
 void Board::printBoard(){
+  int index = 0;
+
   // Função que mostra o tabalero na sua forma atual e a posição de cada peça 
   for(const auto& row : board){
-    std::cerr << "+---+---+---+---+---+---+---+---+\n";
+    std::cerr << "  +---+---+---+---+---+---+---+---+\n";
+    std::cerr << ++index << ' ';
     for(const auto& col : row){
       if(col != nullptr){
         // Caso não seja um ponteiro null vai mostrar a inicial da peça
@@ -57,7 +60,8 @@ void Board::printBoard(){
     }
     std::cerr << "|\n";
   }
-  std::cerr << "+---+---+---+---+---+---+---+---+\n";
+  std::cerr << "  +---+---+---+---+---+---+---+---+\n";
+  std::cerr << "    A   B   C   D   F   G   H   I\n";
 }
 
 Piece* Board::getPiece(int row, int col) const{

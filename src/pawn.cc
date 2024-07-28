@@ -58,15 +58,8 @@ bool Pawn::checkIsValidMovement(int row, int col, std::vector<std::vector<Piece*
       return false;
     }
 
-    // Verificando se é o primeiro movimento da peça branca
-    if(!first_move){
-      // Caso não seja o primeiro movimento aqui ele verifica se o peão branco está andando mais que uma casa
-      if(row > (this->row + 1)){
-        std::cerr << "Invalid movement!\n";
-        return false;
-      }
-      // Caso seja o primeiro movimento ele verifica se o peão branco está andando mais de duas casas
-    } else if(row > (this->row + 2)){
+    // Verificando se é o primeiro movimento do peão branco
+    if(row > (first_move ? this->row + 2 : this->row + 1)){
       std::cerr << "Invalid movement!\n";
       return false;
     }
@@ -77,15 +70,8 @@ bool Pawn::checkIsValidMovement(int row, int col, std::vector<std::vector<Piece*
       return false;
     }
 
-    // Verificando se é o primeiro movimento da peça preta
-    if(!first_move){
-      // Caso não seja o primeiro movimento aqui ele verifica se o peão preto está andando mais de uma casa
-      if(row < (this->row - 1)){
-        std::cerr << "Invalid movement!\n";
-        return false;
-      }
-      // Caso seja o primeiro movimento aqui ele verifica se o peão preto está andando mais que duas casas
-    } else if(row < (this->row - 2)){
+    // Verificando se é o primeiro movimento do peão preto 
+    if(row < (first_move ? this->row - 2 : this->row - 1)){
       std::cerr << "Invalid movement!\n";
       return false;
     }
