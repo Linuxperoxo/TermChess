@@ -36,10 +36,10 @@ void Pawn::movePiece(int row, int col){
   this->row = row;
   this->col = col;
 
-  first_move = (first_move == true ? false : false);
+  first_move = false;
 }
 
-bool Pawn::checkIsValidMovement(int row, int col, std::vector<std::vector<Piece*>> board){
+bool Pawn::checkIsValidMovement(int row, int col, std::vector<std::vector<Piece*>>& board){
   
   // Como matriz começa no 0 aqui nos tiramos 1 de cada entranda para ficar no tamanho certo da matriz
   --row;
