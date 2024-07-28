@@ -4,15 +4,12 @@
 #include "piece.h"
 
 class Pawn : public Piece{
+private:
+  void movePiece(int row, int col) override; 
 public:
-  Pawn(int c, int init_row, int init_col);
-  ~Pawn() = default;
-  
-  int move(int newRow, int newCol) override;
-  int getRow() const;
-  int getCol() const;
-  char getType() const;
+  Pawn(int c, int row, int col);
 
+  bool checkIsValidMovement(int row, int col, std::vector<std::vector<Piece*>> board) override;
 };
 
 #endif

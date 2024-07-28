@@ -1,30 +1,19 @@
-#include "pawn.h"
 #include "piece.h"
+#include "pawn.h"
+#include "board.h"
 
-Pawn::Pawn(int c, int init_row, int init_col) : Piece(c, init_row, init_col){
-  type = ( c == 0 ? 'P' : 'p' );
-  old_col = init_col;
-  old_row = init_row;
-};
-
-int Pawn::move(int newRow, int newCol){
-  old_row = row;
-  old_col = col;
-
-  row = newRow;
-  col = newCol;
-
-  return 0;
+Pawn::Pawn(int c, int row, int col) : Piece(c, row, col){
+  this->type = ( c == 0 ? 'P' : 'p'); 
 }
 
-int Pawn::getRow() const{
-  return row;
+void Pawn::movePiece(int row, int col){
+  this->old_row = this->row;
+  this->old_col = this->col;
+
+  this->row = row;
+  this->col = col;
 }
 
-int Pawn::getCol() const{
-  return col;
-}
+bool Pawn::checkIsValidMovement(int row, int col, std::vector<std::vector<Piece*>> board){
 
-char Pawn::getType() const{
-  return type;
 }

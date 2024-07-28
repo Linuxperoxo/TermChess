@@ -1,40 +1,27 @@
+#include <vector>
+#include <iostream>
+
 #include "board.h"
 #include "piece.h"
 
-#include <iostream>
+#define MAX_BOARD 8
 
-#define BOARD_SIZE 8
-
-Board::Board() : board(BOARD_SIZE, std::vector<Piece*>(BOARD_SIZE, nullptr)){};
+Board::Board(){
+  board.resize(MAX_BOARD, std::vector<Piece*>(MAX_BOARD, nullptr));
+}
 
 Board::~Board(){
-  for(const auto& row : board){
-    for(const auto& piece : row ){
-      delete piece;
+  for(int row = 0; row < MAX_BOARD; ++row){
+    for(int col = 0; col < MAX_BOARD; ++col){
+      delete board[row][col];
     }
   }
 }
 
-void Board::printBoard(){
-  for(const auto& row : board){
-    std::cout << "+---+---+---+---+---+---+---+---+" << '\n';
-    for(const auto& piece : row){
-      if(piece != nullptr){
-        std::cout << '|' << ' ' << piece->getType() << ' ';
-      } else {
-        std::cout << '|' << ' ' << ' ' << ' ';
-      }
-    }
-    std::cout << '|' << '\n';
+Piece* Board::getPiece(int row, int col) const{
+  if(row < MAX_BOARD && row >= 0 && col < MAX_BOARD && col >= 0){
+    return board[row][col];
   }
-  std::cout << "+---+---+---+---+---+---+---+---+" << '\n';
-}
-
-void Board::placeObject(Piece* object){ 
-  if(board[object->getRow()][object->getCol()] != nullptr){
-    std::cout << "Colision piece detected" << '\n';
-    delete board[object->getRow()][object->getCol()];
-  }
-
-  board[object->getRow()][object->getCol()] = object;
+  std::cerr << "Invalid ptr!" << '\n';
+  return nullptr;
 }
