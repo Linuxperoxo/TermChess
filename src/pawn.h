@@ -27,7 +27,7 @@ public:
   Pawn(int c, int row, int col);
 
   // Função que verifica se o movimento é válido
-  bool checkIsValidMovement(int row, int col, std::vector<std::vector<Piece*>> board);
+  bool checkIsValidMovement(int row, int col, std::vector<std::vector<Piece*>>& board);
 };
 
 #endif
