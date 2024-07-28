@@ -13,5 +13,7 @@ int main(){
   board->putPiece(pawn1);
   board->printBoard();
 
+  delete board;
+
   return 0;
 }
