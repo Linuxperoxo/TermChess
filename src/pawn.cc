@@ -11,12 +11,8 @@
 //==========================================================| .H
 
 #include "piece.h"
+#include "board.h"
 #include "pawn.h"
-
-//==========================================================| MACROS
-
-#define MAX_BOARD 7
-#define MIN_BOARD 0
 
 //==========================================================| CLASS FUNCTIONS
 
@@ -39,52 +35,35 @@ void Pawn::movePiece(int row, int col){
   first_move = false;
 }
 
-bool Pawn::checkIsValidMovement(int row, int col, std::vector<std::vector<Piece*>>& board){
+bool Pawn::checkIsValidMovement(int row, int col, std::vector<std::vector<Piece*>> board){
   
-  // Como matriz começa no 0 aqui nos tiramos 1 de cada entranda para ficar no tamanho certo da matriz
+  // Verificando se o movimento é válido de acordo com o tamanho do board
+  if(row > MAX_BOARD || row < MIN_BOARD || col > MAX_BOARD || col < MIN_BOARD){
+    std::cerr << "Invalid movement!\n";
+    return false;
+  }
+
+  // Ajustando para indexação baseada em 0
   --row;
   --col;
 
-  // Verificando se o movimento é válido de acordo com o tamanho do board
-  if(row > MAX_BOARD || row < MIN_BOARD){
-    std::cerr << "Invalid movement!\n";
-    return false;
+  // Se a cor for branco(0) a direção sempre vai ser positiva se for preta(1) negativa
+  int direction = (this->color == 0 ? 1 : -1);
+
+  // // Movimento normal de 1 casa
+  if(row == this->row + direction && col == this->col && board[row][col] == nullptr){
+    movePiece(row, col);
+    return true;
   }
 
-  // Verificando se o peão branco está voltando uma casa
-  if(this->color == 0){
-    if(row < this->row){
-      std::cerr << "Invalid movement!\n";
-      return false;
-    }
-
-    // Verificando se é o primeiro movimento do peão branco
-    if(row > (first_move ? this->row + 2 : this->row + 1)){
-      std::cerr << "Invalid movement!\n";
-      return false;
-    }
-  } else {
-    // Verificando se o peão preto está voltando uma casa
-    if(row > this->row){
-      std::cerr << "Invalid movement!\n";
-      return false;
-    }
-
-    // Verificando se é o primeiro movimento do peão preto 
-    if(row < (first_move ? this->row - 2 : this->row - 1)){
-      std::cerr << "Invalid movement!\n";
-      return false;
+  // Movimento duplo no primeiro movimento
+  if(row == this->row + 2 * direction && col == this->col && first_move){
+    if(board[row + direction][col] == nullptr && board[row][col] == nullptr){
+      movePiece(row, col);
+      return true;
     }
   }
-
-  // Verificando se a casa a frente tem alguma peça
-  if(board[row][this->col] != nullptr){
-    std::cerr << "Invalid movement!\n";
-    return false;
-  }
-
-  // Caso seja válido a peça vai andar 
-  movePiece(row, this->col);
-
-  return true;
+  
+  std::cerr << "Invalid movement!\n";
+  return false;
 }

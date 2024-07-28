@@ -39,11 +39,15 @@ protected:
 
   // Função virtual pura 
   virtual void movePiece(int row, int col) = 0;
+
 public:
 
   // Destrutor virtual
   virtual ~Piece() = default;
 
+  // Função virtual pura
+  virtual bool checkIsValidMovement(int row, int col, std::vector<std::vector<Piece*>> board) = 0;
+  
   // Funções get para encapsular a classe 
   char getType() const { return type; }
   int getColor() const { return color; }

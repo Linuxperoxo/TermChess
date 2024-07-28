@@ -14,10 +14,6 @@
 #include "board.h"
 #include "piece.h"
 
-//==========================================================| MACROS
-
-#define MAX_BOARD 8
-
 //==========================================================| CLASS FUNCTIONS
 
 Board::Board(){
@@ -61,17 +57,24 @@ void Board::printBoard(){
     std::cerr << "|\n";
   }
   std::cerr << "  +---+---+---+---+---+---+---+---+\n";
-  std::cerr << "    A   B   C   D   F   G   H   I\n";
+  std::cerr << "    1   2   3   4   5   6   7   8\n";
 }
 
 Piece* Board::getPiece(int row, int col) const{
   // Verificando se a posição está no limite do tabuleiro
-  if(row < MAX_BOARD && row >= 0 && col < MAX_BOARD && col >= 0){
+  if(row < MAX_BOARD && row >= MIN_BOARD && col < MAX_BOARD && col >= MIN_BOARD){
+  
+    // Ajustando para indexação baseada em 0
+    --row;
+    --col;
+
     // Retornando ponteiro do objeto
-    return board[row][col];
+    if(board[row][col] != nullptr){
+      return board[row][col];
+    }
   }
 
   // Caso falhe 
-  std::cerr << "Invalid ptr!" << '\n';
+  std::cerr << "Invalid piece!\n";
   return nullptr;
 }
