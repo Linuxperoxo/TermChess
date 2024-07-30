@@ -1,6 +1,6 @@
-#include <iostream>
-#include <string>
+#include <cstdlib>
 
+#include "player.h"
 #include "board.h"
 #include "pawn.h"
 #include "piece.h"
@@ -13,34 +13,30 @@ int main(){
   Piece* pawn1 = new Pawn(0, 0, 0);
   Piece* pawn2 = new Pawn(1, 6, 0);
 
+  Player* playerW = new Player(0);
+  Player* playerB = new Player(1);
+
   board->putPiece(pawn1);
   board->putPiece(pawn2);
   
-  Piece* piece = nullptr;
-
-  std::string user_input;
-
   while(run){
     system("clear");
 
     board->printBoard();
 
-    std::cout << "Select piece and move:\n";
-    std::getline(std::cin, user_input);
+    while(playerW->getInput(board) == false);
+    
+    system("clear");
 
-    int piece_row = user_input[0] - '0';
-    int piece_col = user_input[1] - '0';
-    int move_row = user_input[2] - '0';
-    int move_col = user_input[3] - '0';
+    board->printBoard();
 
-    piece = board->getPiece(piece_row, piece_col);
-
-    piece->checkIsValidMovement(move_row, move_col, board->getBoard());
-
-    user_input.clear();
-
-    board->putPiece(piece);
+    while(playerB->getInput(board) == false);
     
   }
+
+  delete playerW;
+  delete playerB;
+  delete board;
+
   return 0;
 }
