@@ -23,7 +23,7 @@ Pawn::Pawn(int c, int row, int col) : Piece(c, row, col){
   this->first_move = true;
 }
 
-void Pawn::movePiece(int row, int col){
+void Pawn::movePiece(const int& row, const int& col){
   // Armazenando posição antiga
   this->old_row = this->row;
   this->old_col = this->col;
@@ -35,7 +35,7 @@ void Pawn::movePiece(int row, int col){
   first_move = false;
 }
 
-bool Pawn::checkIsValidMovement(int row, int col, std::vector<std::vector<Piece*>> board){
+bool Pawn::checkIsValidMovement(int& row, int& col, const std::vector<std::vector<Piece*>>& board){
 
   // Verificando se o movimento é válido de acordo com o tamanho do board
   if(row > MAX_BOARD || row < MIN_BOARD || col > MAX_BOARD || col < MIN_BOARD){

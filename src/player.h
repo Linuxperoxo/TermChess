@@ -40,7 +40,7 @@ public:
   ~Player() = default;
 
   // Função para pegar o input do player
-  bool getInput(Board* board);
+  bool getInputToMove(Board* board);
 };
 
 #endif

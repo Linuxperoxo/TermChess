@@ -20,14 +20,14 @@ private:
   bool first_move;
 
   // Pegando função virtual de Piece
-  void movePiece(int row, int col) override; 
+  void movePiece(const int& row, const int& col) override; 
 public:
 
   // Construtor
   Pawn(int c, int row, int col);
 
   // Função que verifica se o movimento é válido
-  bool checkIsValidMovement(int row, int col, std::vector<std::vector<Piece*>> board) override;
+  bool checkIsValidMovement(int& row, int& col, const std::vector<std::vector<Piece*>>& board) override;
 };
 
 #endif
