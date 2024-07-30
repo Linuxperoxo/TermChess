@@ -22,11 +22,12 @@ bool Player::checkColor(Piece* piece){
 }
 
 bool Player::getInputToMove(Board* board){
-  std::cout << "Select piece and move to: (row, col, row, col)\n";
+  std::cout << "\nSelect piece and move to: (row, col, row, col)\n";
   std::getline(std::cin, player_buffer);
 
-  if(player_buffer.size() > 4){
+  if(player_buffer.size() > 4 || player_buffer.size() < 4){
     std::cerr << "Invalid input format!\n";
+    player_buffer.clear();
     return false;
   }
 
@@ -37,6 +38,10 @@ bool Player::getInputToMove(Board* board){
 
 
   player_piece_ptr = board->getPiece(piece_row, piece_col);
+
+  if(player_piece_ptr == nullptr){
+    return false;
+  }
 
   if(!checkColor(player_piece_ptr)){
     std::cerr << "Invalid piece color!\n";

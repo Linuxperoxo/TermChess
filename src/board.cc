@@ -62,18 +62,15 @@ void Board::printBoard(){
 
 Piece* Board::getPiece(int row, int col) const{
   // Verificando se a posição está no limite do tabuleiro
-  if(row < MAX_BOARD || row >= MIN_BOARD || col < MAX_BOARD || col >= MIN_BOARD){
-    std::cerr << "Invalid position: (" << row << ", " << col << ")\n";
-    return nullptr;
-  }
-  
-  // Ajustando para indexação baseada em 0
-  --row;
-  --col;
+  if(row < MAX_BOARD && row >= MIN_BOARD && col < MAX_BOARD && col >= MIN_BOARD){
+    // Ajustando para indexação baseada em 0
+    --row;
+    --col;
 
-  // Retornando ponteiro do objeto
-  if(board[row][col] != nullptr){
-    return board[row][col];
+    // Retornando ponteiro do objeto
+    if(board[row][col] != nullptr){
+      return board[row][col];
+    }
   }
 
   // Caso falhe 
