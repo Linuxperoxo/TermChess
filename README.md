@@ -89,6 +89,7 @@ Este projeto está em desenvolvimento contínuo e atualmente possui as seguintes
 - **Médio Prazo**: Adicionar suporte para regras avançadas e melhorias na interface de usuário.
 - **Longo Prazo**: Desenvolver uma interface gráfica e adicionar suporte para jogos contra o computador.
 
-O projeto está em uma fase inicial e está aberto a contribuições para melhorar e expandir suas funcionalidades. Agradecemos pelo interesse e pela colaboração!
+O projeto está em uma fase inicial e está aberto a contribuições para melhorar e expandir suas funcionalidades. 
+Estou aberto a sugestões, colaborações e aprendizados adicionais. Este projeto é uma iniciativa pessoal para entretenimento e para aprimorar a estrutura do meu código e a minha lógica de programação. Agradeço a todos que puderem contribuir e colaborar! :^)
 
 
