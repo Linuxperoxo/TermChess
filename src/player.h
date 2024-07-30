@@ -23,10 +23,10 @@ private:
   // Cada player vai ter uma cor de peças
   int color;
 
-  // Buffer player
+  // Buffer de entrada do player
   std::string player_buffer;
 
-  // Ponteiro que aponta para uma peça
+  // Ponteiro que aponta para um objeto que herda da classe Piece
   Piece* player_piece_ptr;
 
   // Função que verifica a cor da peça
