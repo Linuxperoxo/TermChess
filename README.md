@@ -76,7 +76,7 @@ Este projeto está em desenvolvimento contínuo e atualmente possui as seguintes
 - **Movimentação**: O peão pode ser movido de acordo com regras básicas, e o tabuleiro é atualizado após cada movimento.
 - **Interface de Texto**: O programa aceita entradas do usuário para movimentar as peças e atualiza o tabuleiro no terminal.
 
-### Áreas para Desenvolvimento Futuro
+### Desenvolvimento Futuro
 
 - **Implementação de Outras Peças**: Adicionar classes e lógicas para outras peças de xadrez (torre, cavalo, bispo, rainha, rei).
 - **Regras Completas**: Implementar regras completas do xadrez, como captura, promoção de peões, xeque e xeque-mate.
@@ -86,8 +86,8 @@ Este projeto está em desenvolvimento contínuo e atualmente possui as seguintes
 ### Roadmap
 
 - **Curto Prazo**: Implementar outras peças e suas regras de movimentação.
-- **Médio Prazo**: Adicionar suporte para regras avançadas e melhorias na interface de usuário.
-- **Longo Prazo**: Desenvolver uma interface gráfica e adicionar suporte para jogos contra o computador.
+- **Médio Prazo**: Adicionar suporte para regras avançadas.
+- **Longo Prazo**: Desenvolver um suporte para jogos contra o computador.
 
 O projeto está em uma fase inicial e está aberto a contribuições para melhorar e expandir suas funcionalidades. 
 
