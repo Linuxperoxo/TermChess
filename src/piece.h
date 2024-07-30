@@ -19,7 +19,7 @@ protected:
   // Inicial da peça 
   char type;
 
-  // Cor 
+  // Var que define a cor
   int color;
 
   // Posição atual no eixo Y

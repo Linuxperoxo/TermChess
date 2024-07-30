@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string>
 
 #include "board.h"
 #include "pawn.h"
@@ -17,26 +18,26 @@ int main(){
   
   Piece* piece = nullptr;
 
-  int n1, n2;
+  std::string user_input;
 
   while(run){
     system("clear");
 
     board->printBoard();
 
-    std::cout << "Select piece: \n";
+    std::cout << "Select piece and move:\n";
+    std::getline(std::cin, user_input);
 
-    std::cin >> n1;
-    std::cin >> n2;
-    
-    piece = board->getPiece(n1, n2);
+    int piece_row = user_input[0] - '0';
+    int piece_col = user_input[1] - '0';
+    int move_row = user_input[2] - '0';
+    int move_col = user_input[3] - '0';
 
-    std::cout << "Move piece: \n";
+    piece = board->getPiece(piece_row, piece_col);
 
-    std::cin >> n1;
-    std::cin >> n2;
+    piece->checkIsValidMovement(move_row, move_col, board->getBoard());
 
-    piece->checkIsValidMovement(n1, n2, board->getBoard());
+    user_input.clear();
 
     board->putPiece(piece);
     

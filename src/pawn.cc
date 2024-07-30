@@ -36,7 +36,7 @@ void Pawn::movePiece(int row, int col){
 }
 
 bool Pawn::checkIsValidMovement(int row, int col, std::vector<std::vector<Piece*>> board){
-  
+
   // Verificando se o movimento é válido de acordo com o tamanho do board
   if(row > MAX_BOARD || row < MIN_BOARD || col > MAX_BOARD || col < MIN_BOARD){
     std::cerr << "Invalid movement!\n";
@@ -50,7 +50,7 @@ bool Pawn::checkIsValidMovement(int row, int col, std::vector<std::vector<Piece*
   // Se a cor for branco(0) a direção sempre vai ser positiva se for preta(1) negativa
   int direction = (this->color == 0 ? 1 : -1);
 
-  // // Movimento normal de 1 casa
+  // Movimento normal de 1 casa
   if(row == this->row + direction && col == this->col && board[row][col] == nullptr){
     movePiece(row, col);
     return true;

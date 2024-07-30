@@ -77,4 +77,4 @@ Piece* Board::getPiece(int row, int col) const{
   // Caso falhe 
   std::cerr << "Invalid piece!\n";
   return nullptr;
-}
+  }
