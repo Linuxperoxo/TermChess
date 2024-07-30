@@ -28,6 +28,8 @@ void Pawn::movePiece(const int& row, const int& col){
   this->old_row = this->row;
   this->old_col = this->col;
 
+  std::cout << this->old_row << ' ' << this->old_col << '\n';
+
   // Armazenando posição atual
   this->row = row;
   this->col = col;
@@ -59,6 +61,14 @@ bool Pawn::checkIsValidMovement(int& row, int& col, const std::vector<std::vecto
   // Movimento duplo no primeiro movimento
   if(row == this->row + 2 * direction && col == this->col && first_move){
     if(board[row + direction][col] == nullptr && board[row][col] == nullptr){
+      movePiece(row, col);
+      return true;
+    }
+  }
+
+  // Movimento de captura do peão 
+  if(row == this->row + direction && board[row][col] != nullptr){
+    if(col == this->col + 1 || col == this->col - 1){
       movePiece(row, col);
       return true;
     }

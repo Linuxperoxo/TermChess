@@ -32,7 +32,7 @@ Board::~Board(){
 
 void Board::putPiece(Piece* object){
   // Limpando a posição anterior da peça
-  board[object->getOldRow()][object->getCol()] = nullptr;
+  board[object->getOldRow()][object->getOldCol()] = nullptr;
 
   // Colocando a peça para a nova posição
   board[object->getRow()][object->getCol()] = object;

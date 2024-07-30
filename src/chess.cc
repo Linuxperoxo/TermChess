@@ -10,7 +10,7 @@ int main(){
 
   bool run = true;
 
-  Piece* pawn1 = new Pawn(0, 0, 0);
+  Piece* pawn1 = new Pawn(0, 4, 1);
   Piece* pawn2 = new Pawn(1, 6, 0);
 
   Player* playerW = new Player(0);
