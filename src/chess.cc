@@ -24,13 +24,13 @@ int main(){
 
     board->printBoard();
 
-    while(playerW->getInput(board) == false);
+    while(playerW->getInputToMove(board) == false);
     
     system("clear");
 
     board->printBoard();
 
-    while(playerB->getInput(board) == false);
+    while(playerB->getInputToMove(board) == false);
     
   }
 
