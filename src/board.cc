@@ -74,6 +74,6 @@ Piece* Board::getPiece(int row, int col) const{
   }
 
   // Caso falhe 
-  std::cerr << "No piece found at position: (" << row + 1 << ", " << col + 1 << ")\n";
+  std::cerr << "\nNo piece found at position: (" << row + 1 << ", " << col + 1 << ")\n";
   return nullptr;
   }

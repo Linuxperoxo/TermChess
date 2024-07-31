@@ -27,7 +27,7 @@ bool Player::getInputToMove(Board* board){
 
   // Verificando se o tamanho é o ideal
   if(player_buffer.size() > 4 || player_buffer.size() < 4){
-    std::cerr << "Invalid input format!\n";
+    std::cerr << "\nInvalid input format!\n";
     player_buffer.clear();
     return false;
   }
@@ -48,7 +48,7 @@ bool Player::getInputToMove(Board* board){
 
   // Verificando se a peça é da cor certa
   if(!checkColor(player_piece_ptr)){
-    std::cerr << "Invalid piece color!\n";
+    std::cerr << "\nInvalid piece color!\n";
     player_piece_ptr = nullptr;
     player_buffer.clear();
     return false;

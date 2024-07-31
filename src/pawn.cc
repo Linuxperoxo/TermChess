@@ -11,13 +11,12 @@
 //==========================================================| .H
 
 #include "piece.h"
-#include "board.h"
 #include "pawn.h"
 
 //==========================================================| CLASS FUNCTIONS
 
 Pawn::Pawn(int c, int row, int col) : Piece(c, row, col){
-  // Definido a cor da peça
+  // Definindo a cor da peça
   this->type = ( c == 0 ? 'P' : 'p');
   // Falando que é o primeiro movimento da peça
   this->first_move = true;
@@ -28,8 +27,6 @@ void Pawn::movePiece(const int& row, const int& col){
   this->old_row = this->row;
   this->old_col = this->col;
 
-  std::cout << this->old_row << ' ' << this->old_col << '\n';
-
   // Armazenando posição atual
   this->row = row;
   this->col = col;
@@ -38,13 +35,6 @@ void Pawn::movePiece(const int& row, const int& col){
 }
 
 bool Pawn::checkIsValidMovement(int& row, int& col, const std::vector<std::vector<Piece*>>& board){
-
-  // Verificando se o movimento é válido de acordo com o tamanho do board
-  if(row > MAX_BOARD || row < MIN_BOARD || col > MAX_BOARD || col < MIN_BOARD){
-    std::cerr << "Invalid movement!\n";
-    return false;
-  }
-
   // Ajustando para indexação baseada em 0
   --row;
   --col;
@@ -73,7 +63,6 @@ bool Pawn::checkIsValidMovement(int& row, int& col, const std::vector<std::vecto
       return true;
     }
   }
-  
-  std::cerr << "Invalid movement!\n";
+  std::cerr << "\nInvalid movement!\n";
   return false;
 }
