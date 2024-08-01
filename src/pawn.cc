@@ -15,14 +15,14 @@
 
 //==========================================================| CLASS FUNCTIONS
 
-Pawn::Pawn(int c, int row, int col) : Piece(c, row, col){
+Pawn::Pawn(int c, unsigned int row, unsigned int col) : Piece(c, row, col){
   // Definindo a cor da peça
   this->type = ( c == 0 ? 'P' : 'p');
   // Falando que é o primeiro movimento da peça
   this->first_move = true;
 }
 
-void Pawn::movePiece(const int& row, const int& col){
+void Pawn::movePiece(const unsigned int& row, const unsigned int& col){
   // Armazenando posição antiga
   this->old_row = this->row;
   this->old_col = this->col;
@@ -34,7 +34,7 @@ void Pawn::movePiece(const int& row, const int& col){
   first_move = false;
 }
 
-bool Pawn::checkIsValidMovement(int& row, int& col, const std::vector<std::vector<Piece*>>& board){
+bool Pawn::checkIsValidMovement(unsigned int& row, unsigned int& col, const std::vector<std::vector<Piece*>>& board){
   // Ajustando para indexação baseada em 0
   --row;
   --col;

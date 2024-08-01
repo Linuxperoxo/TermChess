@@ -33,10 +33,17 @@ bool Player::getInputToMove(Board* board){
   }
 
   // Convertendo char em int
-  int piece_row = player_buffer[0] - '0'; 
-  int piece_col = player_buffer[1] - '0'; 
-  int move_row = player_buffer[2] - '0'; 
-  int move_col = player_buffer[3] - '0';
+  unsigned int piece_row = player_buffer[0] - '0'; 
+  unsigned int piece_col = player_buffer[1] - '0'; 
+  unsigned int move_row = player_buffer[2] - '0'; 
+  unsigned int move_col = player_buffer[3] - '0';
+
+//  if(move_row > MAX_BOARD || move_row < MIN_BOARD || move_col > MAX_BOARD || move_col < MIN_BOARD ||
+//     piece_row > MAX_BOARD || piece_row < MAX_BOARD || piece_col > MAX_BOARD || piece_col < MIN_BOARD){
+    
+//    std::cerr << "Board limit exceeded!\n";
+//    return false;
+//  }
 
   // Apontando para a peça 
   player_piece_ptr = board->getPiece(piece_row, piece_col);

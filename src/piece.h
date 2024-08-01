@@ -23,22 +23,22 @@ protected:
   int color;
 
   // Posição atual no eixo Y
-  int row;
+  unsigned int row;
 
   // Posição atual no eixo X
-  int col;
+  unsigned int col;
 
   // Posição Y anterior a atual
-  int old_row;
+  unsigned int old_row;
 
   // Posição X anterior a atual
-  int old_col;
+  unsigned int old_col;
 
   // Construtor 
-  Piece(int c, int row, int col) : color(c), row(row), col(col), old_row(row), old_col(col){};
+  Piece(unsigned int c, unsigned int row, unsigned int col) : color(c), row(row), col(col), old_row(row), old_col(col){};
 
   // Função virtual pura 
-  virtual void movePiece(const int& row, const int& col) = 0;
+  virtual void movePiece(const unsigned int& row, const unsigned int& col) = 0;
 
 public:
 
@@ -46,15 +46,15 @@ public:
   virtual ~Piece() = default;
 
   // Função virtual pura
-  virtual bool checkIsValidMovement(int& row, int& col, const std::vector<std::vector<Piece*>>& board) = 0;
+  virtual bool checkIsValidMovement(unsigned int& row, unsigned int& col, const std::vector<std::vector<Piece*>>& board) = 0;
   
   // Funções get para encapsular a classe 
   char getType() const { return type; }
   int getColor() const { return color; }
-  int getRow() const { return row; }
-  int getCol() const { return col; }
-  int getOldRow() const { return old_row; }
-  int getOldCol() const { return old_col; }
+  unsigned int getRow() const { return row; }
+  unsigned int getCol() const { return col; }
+  unsigned int getOldRow() const { return old_row; }
+  unsigned int getOldCol() const { return old_col; }
 
 };
 

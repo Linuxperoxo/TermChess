@@ -19,16 +19,16 @@ private:
   // Primeiro movimento da peça
   bool first_move;
 
-  // Pegando função virtual de Piece
-  void movePiece(const int& row, const int& col) override;
+  // Pegando função virtual pura da class Piece
+  void movePiece(const unsigned int& row, const unsigned int& col) override;
 
 public:
 
   // Construtor
-  King(int c, int row, int col);
+  King(int c, unsigned int row, unsigned int col);
 
   // Função que verifica se o movimento é válido
-  bool checkIsValidMovement(int& row, int& col, const std::vector<std::vector<Piece*>>& board) override;
+  bool checkIsValidMovement(unsigned int& row, unsigned int& col, const std::vector<std::vector<Piece*>>& board) override;
 };
 
 #endif
