@@ -65,7 +65,7 @@ void Board::printBoard(){
 
 Piece* Board::getPiece(unsigned int row, unsigned int col) const{
   // Verificando se a posição está no limite do tabuleiro
-  if(row < MAX_BOARD && row >= MIN_BOARD && col < MAX_BOARD && col >= MIN_BOARD){
+  if(row <= MAX_BOARD && row >= MIN_BOARD && col <= MAX_BOARD && col >= MIN_BOARD){
     // Retornando ponteiro do objeto
     if(board[row - 1][col - 1] != nullptr){
       return board[row - 1][col - 1];
