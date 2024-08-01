@@ -6,7 +6,7 @@ Este projeto é uma implementação básica de um jogo de xadrez utilizando C++.
 
 - **Tabuleiro de Jogo**: Um tabuleiro 8x8 é representado por uma matriz de ponteiros para peças (`Piece*`). O tabuleiro é inicializado com `nullptr`, e as peças são adicionadas e movidas conforme a lógica do jogo.
 
-- **Peças de Jogo**: Implementa uma classe base `Piece` e uma classe derivada `Pawn`. A classe `Piece` define a interface comum para todas as peças, enquanto a classe `Pawn` define o comportamento específico dos peões, incluindo a validação dos movimentos.
+- **Peças de Jogo**: Implementa uma classe base `Piece` e outras classe derivadas para cada peça. A classe `Piece` define a interface comum para todas as peças.
 
 - **Movimentação de Peças**: Permite mover peças no tabuleiro e valida os movimentos de acordo com as regras básicas dos peões.
 
@@ -19,6 +19,10 @@ Este projeto é uma implementação básica de um jogo de xadrez utilizando C++.
 - **piece.h**: Definição da classe base `Piece` que representa uma peça genérica de xadrez.
 
 - **pawn.cc / pawn.h**: Implementação e definição da classe `Pawn`, que representa um peão e define suas regras de movimentação.
+
+- **king.cc / king.h**: Implementação e definição da classe `King`, que representa o rei e define suas regras de movimentação.
+
+- **rook.cc / rook.h**: Implementação e definição da classe `Rook`, que representa uma torre e define suas regras de movimentação.
 
 - **player.cc / player.h**: Implementação e definição da classe `Player`, que lida com a entrada do usuário e a seleção de peças.
 
@@ -78,8 +82,8 @@ Este projeto está em desenvolvimento contínuo e atualmente possui as seguintes
 
 ### Desenvolvimento Futuro
 
-- **Implementação de Outras Peças**: Adicionar classes e lógicas para outras peças de xadrez (torre, cavalo, bispo, rainha, rei).
-- **Regras Completas**: Implementar regras completas do xadrez, como captura, promoção de peões, xeque e xeque-mate.
+- **Implementação de Outras Peças**: Adicionar classes e lógicas para outras peças de xadrez (cavalo, bispo, rainha).
+- **Regras Completas**: Implementar regras completas do xadrez, promoção de peões, xeque e xeque-mate.
 - **Validação de Entradas**: Melhorar a validação de entradas e gerenciamento de erros para uma experiência mais robusta.
 - **Inteligência Artificial**: Adicionar uma componente de inteligência artificial para jogar contra o computador.
 
