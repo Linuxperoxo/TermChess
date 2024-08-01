@@ -41,26 +41,28 @@ void Board::putPiece(Piece* object){
   board[object->getRow()][object->getCol()] = object;
 }
 
+// Função que mostra o tabalero na sua forma atual e a posição de cada peça
 void Board::printBoard(){
-  int index = 0;
-
-  // Função que mostra o tabalero na sua forma atual e a posição de cada peça 
-  for(const auto& row : board){
-    std::cerr << "  +---+---+---+---+---+---+---+---+\n";
-    std::cerr << ++index << ' ';
-    for(const auto& col : row){
-      if(col != nullptr){
+  // Passando por cada linha da matriz
+  for(int i = MAX_BOARD - 1; i > -1; i--){
+    // Mostrando a linha
+    std::cout << "  +---+---+---+---+---+---+---+---+\n";
+    // Mostrando a numeração da linha
+    std::cout << i + 1 << ' ';
+    // Passando por cada coluna da matriz
+    for(int j = 0; j < MAX_BOARD; j++){
+      if(board[i][j] != nullptr){
         // Caso não seja um ponteiro null vai mostrar a inicial da peça
-        std::cerr << '|' << ' ' << col->getType() << ' ';
+        std::cout << '|' << ' ' << board[i][j]->getType() << ' ';
       } else {
         // Caso seja um ponteiro null vai mostrar apenas um ' '
-        std::cerr << '|' << ' ' << ' ' << ' ';
+        std::cout << '|' << ' ' << ' ' << ' ';
       }
     }
-    std::cerr << "|\n";
+    std::cout << "|\n";
   }
-  std::cerr << "  +---+---+---+---+---+---+---+---+\n";
-  std::cerr << "    1   2   3   4   5   6   7   8\n";
+  std::cout << "  +---+---+---+---+---+---+---+---+\n";
+  std::cout << "    1   2   3   4   5   6   7   8\n";
 }
 
 Piece* Board::getPiece(unsigned int row, unsigned int col) const{
@@ -73,6 +75,6 @@ Piece* Board::getPiece(unsigned int row, unsigned int col) const{
   }
 
   // Caso falhe 
-  std::cerr << "\nNo piece found at position: (" << row << ", " << col << ")\n";
+  std::cout << "\nNo piece found at position: (" << row << ", " << col << ")\n";
   return nullptr;
 }
