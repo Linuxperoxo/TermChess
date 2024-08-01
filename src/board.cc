@@ -25,9 +25,12 @@ Board::~Board(){
   // Passando por cada elemento e deletando tudo para liberar a memória
   for(int row = 0; row < MAX_BOARD; ++row){
     for(int col = 0; col < MAX_BOARD; ++col){
-      delete board[row][col];
+      if(board[row][col] != nullptr){
+        delete board[row][col];
+      }
     }
   }
+  Board::printBoard();
 }
 
 void Board::putPiece(Piece* object){
@@ -60,20 +63,16 @@ void Board::printBoard(){
   std::cerr << "    1   2   3   4   5   6   7   8\n";
 }
 
-Piece* Board::getPiece(int row, int col) const{
+Piece* Board::getPiece(unsigned int row, unsigned int col) const{
   // Verificando se a posição está no limite do tabuleiro
   if(row < MAX_BOARD && row >= MIN_BOARD && col < MAX_BOARD && col >= MIN_BOARD){
-    // Ajustando para indexação baseada em 0
-    --row;
-    --col;
-
     // Retornando ponteiro do objeto
-    if(board[row][col] != nullptr){
-      return board[row][col];
+    if(board[row - 1][col - 1] != nullptr){
+      return board[row - 1][col - 1];
     }
   }
 
   // Caso falhe 
-  std::cerr << "\nNo piece found at position: (" << row + 1 << ", " << col + 1 << ")\n";
+  std::cerr << "\nNo piece found at position: (" << row << ", " << col << ")\n";
   return nullptr;
-  }
+}

@@ -33,7 +33,7 @@ public:
   ~Board();
 
   // Essa função retorna um ponteiro para um objeto que herda da classe Piece
-  Piece* getPiece(int row, int col) const;
+  Piece* getPiece(unsigned int row, unsigned int col) const;
   
   // Essa função põe a peça no tabuleiro
   void putPiece(Piece* object);

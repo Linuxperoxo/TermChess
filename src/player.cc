@@ -38,12 +38,12 @@ bool Player::getInputToMove(Board* board){
   unsigned int move_row = player_buffer[2] - '0'; 
   unsigned int move_col = player_buffer[3] - '0';
 
-//  if(move_row > MAX_BOARD || move_row < MIN_BOARD || move_col > MAX_BOARD || move_col < MIN_BOARD ||
-//     piece_row > MAX_BOARD || piece_row < MAX_BOARD || piece_col > MAX_BOARD || piece_col < MIN_BOARD){
+  if(move_row > MAX_BOARD || move_row < MIN_BOARD || move_col > MAX_BOARD || move_col < MIN_BOARD ||
+     piece_row > MAX_BOARD || piece_row < MIN_BOARD || piece_col > MAX_BOARD || piece_col < MIN_BOARD){
     
-//    std::cerr << "Board limit exceeded!\n";
-//    return false;
-//  }
+    std::cerr << "\nBoard limit exceeded!\n";
+    return false;
+  }
 
   // Apontando para a peça 
   player_piece_ptr = board->getPiece(piece_row, piece_col);

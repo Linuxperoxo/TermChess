@@ -38,7 +38,6 @@ int main(){
     board->printBoard();
 
     while(playerB->getInputToMove(board) == false);
-    
   }
 
   delete playerW;
