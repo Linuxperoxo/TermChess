@@ -41,7 +41,7 @@ bool Rook::checkIsValidMovement(unsigned int& row, unsigned int& col, const std:
   if(row != this->row && col == this->col){
     int direction = (row > this->row ? 1 : -1);
 
-    for(int i = this->row + direction; i <= row; i += direction){
+    for(int i = this->row + direction; i < row; i += direction){
       if(board[i][col] != nullptr){
         colision = true;
         break;
@@ -57,7 +57,7 @@ bool Rook::checkIsValidMovement(unsigned int& row, unsigned int& col, const std:
   if(row == this->row && col != this->col){
     int direction = (col > this->col ? 1 : -1);
 
-    for(int i = this->col + direction; i >= col; i += direction){
+    for(int i = this->col + direction; i < col; i += direction){
       if(board[row][i] != nullptr){
         colision = true;
         break;
@@ -65,11 +65,18 @@ bool Rook::checkIsValidMovement(unsigned int& row, unsigned int& col, const std:
     }
 
     if(!colision){
-      movePiece(row, col);
-      return true;
+      if(board[row][col] == nullptr){
+        movePiece(row, col);
+        return true;
+      }
+
+      if(board[row][col]->getColor() != color){
+        movePiece(row, col);
+        return true;
+      }
     }
   }
 
-  std::cerr << "Invalid movement!\n";
+  std::cerr << "\nInvalid movement!\n";
   return false;
 }

@@ -20,7 +20,7 @@ int main(){
   Piece* KingB = new King(1, 7, 3);
 
   Piece* rookW = new Rook(0, 0, 0);
-  Piece* rookB = new Rook(1, 7, 7);
+  Piece* rookB = new Rook(1, 6, 0);
   
   Player* playerW = new Player(0);
   Player* playerB = new Player(1);
