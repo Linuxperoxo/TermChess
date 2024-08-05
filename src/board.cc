@@ -23,8 +23,8 @@ Board::Board(){
 
 Board::~Board(){
   // Passando por cada elemento e deletando tudo para liberar a memória
-  for(int row = 0; row < MAX_BOARD; ++row){
-    for(int col = 0; col < MAX_BOARD; ++col){
+  for(size_t row = 0; row < MAX_BOARD; ++row){
+    for(size_t col = 0; col < MAX_BOARD; ++col){
       if(board[row][col] != nullptr){
         delete board[row][col];
       }

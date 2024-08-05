@@ -14,8 +14,7 @@
 //==========================================================| CLASS DEFINITION
 
 class Pawn : public Piece{
-private:
-  
+private:  
   // Primeiro movimento da peça
   bool first_move;
 
@@ -23,7 +22,6 @@ private:
   void movePiece(const unsigned int& row, const unsigned int& col) override; 
 
 public:
-
   // Construtor
   Pawn(int c, unsigned int row, unsigned int col);
 

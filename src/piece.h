@@ -15,7 +15,6 @@
 
 class Piece{
 protected:
-
   // Inicial da peça 
   char type;
 
@@ -41,7 +40,6 @@ protected:
   virtual void movePiece(const unsigned int& row, const unsigned int& col) = 0;
 
 public:
-
   // Destrutor virtual
   virtual ~Piece() = default;
 
@@ -55,7 +53,6 @@ public:
   unsigned int getCol() const { return col; }
   unsigned int getOldRow() const { return old_row; }
   unsigned int getOldCol() const { return old_col; }
-
 };
 
 #endif

@@ -7,7 +7,7 @@
 #ifndef KING_H
 #define KING_H
 
-//==========================================================| LIBS
+//==========================================================| .H
 
 #include "piece.h"
 
@@ -15,7 +15,6 @@
 
 class King : public Piece{
 private:
-
   // Primeiro movimento da peça
   bool first_move;
 
@@ -23,7 +22,6 @@ private:
   void movePiece(const unsigned int& row, const unsigned int& col) override;
 
 public:
-
   // Construtor
   King(int c, unsigned int row, unsigned int col);
 
